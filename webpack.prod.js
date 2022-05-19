@@ -5,6 +5,7 @@ const Webpack = require('webpack');
 const deps = require('./package.json').dependencies;
 
 module.exports = {
+    mode:'production',
   module: {
     rules: [
       {
