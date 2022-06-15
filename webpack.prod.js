@@ -3,9 +3,17 @@ const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPl
 const { VueLoaderPlugin } = require('vue-loader');
 const Webpack = require('webpack');
 const deps = require('./package.json').dependencies;
+const path = require('path');
 
 module.exports = {
     mode:'production',
+    entry:'./src/index.js',
+    output:{ path: path.resolve(__dirname,'dist'),
+    filename: 'build.js'
+    },
+    resolve: {
+      extensions: ['.js', '.jsx']
+    },
   module: {
     rules: [
       {

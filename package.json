@@ -4,8 +4,8 @@
   "description": "Template Micro-Frontend framework Vue",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
-    "build":  "webpack --config webpack.prod.js"
+    "start": "webpack serve --open --config webpack.config.js",
+    "build":  "webpack --mode production --config webpack.prod.js"
   },
   "keywords": [
     "micro-frontend",
