@@ -8,15 +8,12 @@ const path = require('path');
 module.exports = {
     mode:'production',
     entry:'./src/index.js',
-    output:{ path: path.resolve(__dirname,'dist'),
-    filename: 'build.js'
+    output:{ 
+      filename: '[name].[contenthash].js',
+      path: path.resolve(__dirname,'build')
     },
     resolve: {
       extensions: ['.js', '.jsx']
-    },
-    devServer:{
-      static:path.resolve(__dirname,'dist'),
-      compress: true,
     },
   module: {
     rules: [
@@ -43,12 +40,12 @@ module.exports = {
     ]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
+    }),
     new Webpack.DefinePlugin({
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: true,
-    }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
     }),
     new ModuleFederationPlugin({
       name: 'navvue',
